@@ -32,6 +32,21 @@ app.use(express.json())
 
 app.post('/data', (req, res) => {
     const data = req.body;
+    data.name = "SOUSA"
+    console.log(data);
+
+    response.json({
+        data: {
+          id: 1,
+          username: "Dylan",
+        },
+      });
+})
+
+
+app.post('/delete', (req, res) => {
+    const data = req.body;
+    data.name = "SOUSA"
     console.log(data);
 
     response.json({
