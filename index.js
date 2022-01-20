@@ -26,11 +26,20 @@ app.get('/data', async(req, res) => {
 })
 
 
-const bodyParser = require('body-parser')
-const jsonParser = bodyParser.json()
+const { response } = require('express')
 
-app.post('/data', async(req, res) => {
-    var test = req.
+app.use(express.json())
+
+app.post('/data', (req, res) => {
+    const data = req.body;
+    console.log(data);
+
+    response.json({
+        data: {
+          id: 1,
+          username: "Dylan",
+        },
+      });
 })
 
 // Retourne les styles 
