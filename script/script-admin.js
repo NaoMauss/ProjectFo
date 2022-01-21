@@ -47,6 +47,7 @@ const displayCharacters = (characters) => {
 };
 
 loadCharacters();
+loadCharacters();
 console.log(hpCharacters);
 
 function openNav() {
@@ -84,22 +85,23 @@ function pushApi() {
   .then((data) => {
     console.log(data); // Ici je récupère la réponse du serveur ( le response.json )
   });
+  loadCharacters();
 }
 
 function deleteApi(clicked_id){
   console.log("yes");
   console.log(clicked_id)
-  /*fetch("/delete", {
+  fetch("/delete", {
     method: "POST",
     headers: {
       "Content-Type": "application/json", // Cette ligne permet de prévenir le serveur en question que les données que je lui envoie représente du JSON, étant donné que la requête passe par le protocol HTTP ( donc par le réseau ) ce qui transite au final est simplement un chaîne de caractère, il faut donc que le serveur sache ce que représente la chaîne de caractère pour lui rendre sa forme d'objet d'origine
     },
-    body: JSON.stringify({ id : Event.srcElement.id }), // C'est ici que tu va insérer les données que tu veux envoyer, comme tu peux le voir je suis obliger de transformer l'objet en chaîne de caractère pour l'envoyer
+    body: JSON.stringify({ data : clicked_id }), // C'est ici que tu va insérer les données que tu veux envoyer, comme tu peux le voir je suis obliger de transformer l'objet en chaîne de caractère pour l'envoyer
   })
     .then((response) => response.json())
     .then((data) => {
       console.log(data); // Ici je récupère la réponse du serveur ( le response.json )
-    })*/
+    })
 }
 
 // Make a POST request
